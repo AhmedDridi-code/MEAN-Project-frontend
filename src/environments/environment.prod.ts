@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl:"https://mean-stuck-app.herokuapp.com/api"
 };

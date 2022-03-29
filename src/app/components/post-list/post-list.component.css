@@ -1,0 +1,16 @@
+mat-expansion-panel{
+    margin-top:1rem;
+}
+.info-text{
+    display:block;
+    margin-top:2rem;
+    text-align:center;
+    font-size:2rem;
+}
+.post-image img{
+    width:100%;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.5) ;
+}
+mat-paginator{
+    margin-top:2rem;
+}
