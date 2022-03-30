@@ -52,7 +52,7 @@ export class PostComponent implements OnInit {
         this.postService.updatedPost(post);
         this.postForm.reset();
       }
-      this.router.navigate(["/"]);
+      
     }
 }
 onImagePicked(imageInput: any) {

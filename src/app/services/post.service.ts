@@ -3,6 +3,7 @@ import { Post } from '../models/Post';
 import {Subject} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {environment} from "../../environments/environment"
+import { Router } from '@angular/router';
 const BACKEND_URL = environment.apiUrl;
 
 @Injectable({
@@ -12,7 +13,13 @@ export class PostService {
 
   private posts:Post[]=[];
   private postsUpdated = new Subject<{posts:Post[],postCount:number}>();
-  constructor(private http:HttpClient) { }
+
+
+
+  constructor(private http:HttpClient, private router:Router) { }
+
+
+
   getPosts(page:number,limit:number) {
     const query = `?page=${page}&limit=${limit}`;
   this.http.get<{message:string,posts:any[],postCount:number}>(BACKEND_URL+'/posts'+query)
@@ -42,6 +49,7 @@ export class PostService {
     postData.append("description",post.description);
     postData.append("image",post.image);
   this.http.post<{message:string,post:any}>(BACKEND_URL+'/posts',postData).subscribe((data) => {
+    this.router.navigate(["/"]);
   });
   }
   deletePost(id:string){
@@ -65,6 +73,7 @@ export class PostService {
       }
 
     this.http.put(BACKEND_URL+"/posts/"+post.id,postData).subscribe((data:any) => {
+      this.router.navigate(["/"]);
     })
   }
 }

@@ -11,9 +11,9 @@
       <button mat-button color="warn" (click)="DeletePost(post.id)">DELETE</button>
     </mat-action-row>
     <p>{{post.description}}</p>
-    <div *ngIf="post.imagePath" class="post-image">
-      <img *ngIf="post.imagePath" src="{{post.imagePath}}" alt="{{post.title}}">
-    </div>
+<!--     <div *ngIf="post.imagePath" class="post-image">
+      <img src="{{post.imagePath}}" alt="{{post.title}}">
+    </div> -->
   </mat-expansion-panel>
 </mat-accordion>
 <p *ngIf="(!posts || posts.length==0) && !isLoading" class="info-text mat-body-1">No post added yet!</p>
